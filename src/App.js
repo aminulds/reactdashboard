@@ -11,8 +11,8 @@ import { useStateContext } from './contexts/ContextProvider';
 import './App.scss';
 
 const App = () => {
-  const {activeMenu} = useStateContext();
-  
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -73,7 +73,6 @@ const App = () => {
             </div>
 
           </div>
-
 
         </div>
       </BrowserRouter>
