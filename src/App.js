@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AiFillSetting } from 'react-icons/ai';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Sidebar } from './components';
+import { Navbar, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -11,7 +11,7 @@ import { useStateContext } from './contexts/ContextProvider';
 import './App.scss';
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor } = useStateContext();
 
   return (
     <div>
@@ -19,8 +19,10 @@ const App = () => {
         <div className=' flex relative dark:bg-main-dark-bg'>
           <div className=' fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
             <TooltipComponent content="Settings" position="Top">
-              <button type='button' className=' text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{
-                backgroundColor: 'blue',
+              <button type='button' className=' text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' 
+              onClick={() => setThemeSettings(true)}
+              style={{
+                backgroundColor: `${currentColor}`,
                 borderRadius: '50%'
               }}>
                 <AiFillSetting />
@@ -44,6 +46,8 @@ const App = () => {
             </div>
 
             <div>
+              {themeSettings && <ThemeSettings />}
+
               <Routes>
                 {/* Dashboar */}
                 <Route path='/' element={<Ecommerce />} />
