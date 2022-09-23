@@ -30,7 +30,7 @@ const Navbar = () => {
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [screenSize]);
+  }, []);
 
   useEffect(() => {
     if (screenSize <= 900) {
@@ -38,7 +38,7 @@ const Navbar = () => {
     } else {
       setActiveMenu(true);
     }
-  }, [screenSize]);
+  }, []);
 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
@@ -69,7 +69,7 @@ const Navbar = () => {
         />
         <TooltipComponent content='Profile' position='BottomCenter'>
           <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => handleClick('userProfile')}>
-            <img className='rounded-full w-8 h-8' src={avatar} />
+            <img className='rounded-full w-8 h-8' src={avatar} alt="Profile" />
             <p>
               <span className='text-gray-400 text-14'>Hi,</span>
               {` `}
