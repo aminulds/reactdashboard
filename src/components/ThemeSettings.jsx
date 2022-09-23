@@ -58,7 +58,7 @@ const ThemeSettings = () => {
                 content={item.name}
                 position="TopCenter"
               >
-                <div className='relative mt-2 cursor-pointer flex gap-5 items-center'>
+                <div key={item.name} className='relative mt-2 cursor-pointer flex gap-5 items-center'>
                   <button
                     type='button'
                     className='h-10 w-10 rounded-full cursor-pointer'

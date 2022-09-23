@@ -5,11 +5,13 @@ import { Header } from '../components';
 
 const Editor = () => {
   return (
-    <div className='m-2 md:m-5 mt-24 p-2 md:p-6 bg-white rounded-3xl'>
-      <Header category="App" title="Editor" />
-      <RichTextEditorComponent>
-        <Inject services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar ]} />
-      </RichTextEditorComponent>
+    <div className='bg-main-bg dark:bg-main-dark-bg'>
+      <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+        <Header category="App" title="Editor" />
+        <RichTextEditorComponent>
+          <Inject services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]} />
+        </RichTextEditorComponent>
+      </div>
     </div>
   )
 }

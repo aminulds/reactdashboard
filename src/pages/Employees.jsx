@@ -6,7 +6,8 @@ import Header from '../components/Header';
 
 const Employees = () => {
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='bg-main-bg dark:bg-main-dark-bg'>
+      <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
       <Header category="Page" title="Employees" />
       <GridComponent
         dataSource={employeesData}
@@ -22,6 +23,7 @@ const Employees = () => {
         </ColumnsDirective>
         <Inject services={[Page, Search, Toolbar]} />
       </GridComponent>
+    </div>
     </div>
   )
 }

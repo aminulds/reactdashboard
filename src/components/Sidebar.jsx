@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { SiShopware } from 'react-icons/si';
+import { BsShopWindow } from 'react-icons/bs';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
@@ -8,7 +8,7 @@ import { links } from '../data/customData';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const {activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const {activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if(activeMenu && screenSize <= 900){
@@ -26,7 +26,7 @@ const Sidebar = () => {
       {activeMenu && (<>
         <div className='flex justify-between items-center'>
           <Link to="/" onClick={handleCloseSideBar} className='items-center gap-3 flex ml-3 mt-4 text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
-            <SiShopware /> <span>Shoppy</span>
+            <BsShopWindow className='font-semibold' style={{color: currentColor}} /> <span>aMart</span>
           </Link>
           <TooltipComponent content='Menu' position='BottomCenter'>
             <button type='button' onClick={() => setActiveMenu((prevActivemenu) => !prevActivemenu)} 
@@ -46,6 +46,9 @@ const Sidebar = () => {
                   to={`/${link.name}`}
                   key={link.name}
                   onClick={handleCloseSideBar}
+                  style={({isActive}) => ({
+                    backgroundColor: isActive ? currentColor: ''
+                  })}
                   className={({ isActive }) =>
                     isActive ? activeLink : normalLink}
                 >
