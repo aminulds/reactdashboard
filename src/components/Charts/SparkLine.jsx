@@ -22,6 +22,7 @@ class SparkLine extends React.PureComponent {
             visible: true,
           },
         }}
+        
         markerSettings={{ visible: ['All'], size: 2.5, fill: currentColor }}
         dataSource={data}
         xName="x"
